@@ -428,19 +428,19 @@ def draw_pose_landmarks(image, landmarks, upper_body_only, visibility_th=0.5):
             cv.circle(image, (landmark_x, landmark_y), RADIUS, (RED, GREEN, BLUE), THIKNESS)
         if index == 25:  # Правое колено
             cv.circle(image, (landmark_x, landmark_y), RADIUS, (RED, GREEN, BLUE), THIKNESS)
-        if index == 26:  # 左ひざ
+        if index == 26:  # Левое колено
             cv.circle(image, (landmark_x, landmark_y), RADIUS, (RED, GREEN, BLUE), THIKNESS)
-        if index == 27:  # 右足首
+        if index == 27:  # правая лодыжка
             cv.circle(image, (landmark_x, landmark_y), RADIUS, (RED, GREEN, BLUE), THIKNESS)
-        if index == 28:  # 左足首
+        if index == 28:  # левая лодыжка
             cv.circle(image, (landmark_x, landmark_y), RADIUS, (RED, GREEN, BLUE), THIKNESS)
-        if index == 29:  # 右かかと
+        if index == 29:  # правая пятка
             cv.circle(image, (landmark_x, landmark_y), RADIUS, (RED, GREEN, BLUE), THIKNESS)
-        if index == 30:  # 左かかと
+        if index == 30:  # левая пятка
             cv.circle(image, (landmark_x, landmark_y), RADIUS, (RED, GREEN, BLUE), THIKNESS)
-        if index == 31:  # 右つま先
+        if index == 31:  # правый палец
             cv.circle(image, (landmark_x, landmark_y), RADIUS, (RED, GREEN, BLUE), THIKNESS)
-        if index == 32:  # 左つま先
+        if index == 32:  # палец левой ноги
             cv.circle(image, (landmark_x, landmark_y), RADIUS, (RED, GREEN, BLUE), THIKNESS)
         if not upper_body_only:
             cv.putText(image, "z:" + str(round(landmark_z, 3)),
@@ -448,7 +448,7 @@ def draw_pose_landmarks(image, landmarks, upper_body_only, visibility_th=0.5):
                        cv.FONT_HERSHEY_SIMPLEX, 0.5, (80, 22, 10), 1,
                        cv.LINE_AA)
     if len(landmark_point) > 0:
-        # 右目
+        # правый глаз
         if landmark_point[1][0] > visibility_th and landmark_point[2][0] > visibility_th:
             cv.line(image, landmark_point[1][1], landmark_point[2][1], (RED, GREEN, BLUE), THIKNESS)
         if landmark_point[2][0] > visibility_th and landmark_point[3][0] > visibility_th:
@@ -461,20 +461,20 @@ def draw_pose_landmarks(image, landmarks, upper_body_only, visibility_th=0.5):
         # рот
         if landmark_point[9][0] > visibility_th and landmark_point[10][0] > visibility_th:
             cv.line(image, landmark_point[9][1], landmark_point[10][1], (RED, GREEN, BLUE), THIKNESS)
-        # 肩
+        # плечо
         if landmark_point[11][0] > visibility_th and landmark_point[12][0] > visibility_th:
             cv.line(image, landmark_point[11][1], landmark_point[12][1], (RED, GREEN, BLUE), THIKNESS)
-        # 右腕
+        # Правая рука
         if landmark_point[11][0] > visibility_th and landmark_point[13][0] > visibility_th:
             cv.line(image, landmark_point[11][1], landmark_point[13][1], (RED, GREEN, BLUE), THIKNESS)
         if landmark_point[13][0] > visibility_th and landmark_point[15][0] > visibility_th:
             cv.line(image, landmark_point[13][1], landmark_point[15][1], (RED, GREEN, BLUE), THIKNESS)
-        # 左腕
+        # левая рука
         if landmark_point[12][0] > visibility_th and landmark_point[14][0] > visibility_th:
             cv.line(image, landmark_point[12][1], landmark_point[14][1], (RED, GREEN, BLUE), THIKNESS)
         if landmark_point[14][0] > visibility_th and landmark_point[16][0] > visibility_th:
             cv.line(image, landmark_point[14][1], landmark_point[16][1], (RED, GREEN, BLUE), THIKNESS)
-        # 右手
+        # правая рука
         if landmark_point[15][0] > visibility_th and landmark_point[17][0] > visibility_th:
             cv.line(image, landmark_point[15][1], landmark_point[17][1], (RED, GREEN, BLUE), THIKNESS)
         if landmark_point[17][0] > visibility_th and landmark_point[19][0] > visibility_th:
@@ -483,7 +483,7 @@ def draw_pose_landmarks(image, landmarks, upper_body_only, visibility_th=0.5):
             cv.line(image, landmark_point[19][1], landmark_point[21][1], (RED, GREEN, BLUE), THIKNESS)
         if landmark_point[21][0] > visibility_th and landmark_point[15][0] > visibility_th:
             cv.line(image, landmark_point[21][1], landmark_point[15][1], (RED, GREEN, BLUE), THIKNESS)
-        # 左手
+        # левая рука
         if landmark_point[16][0] > visibility_th and landmark_point[18][
             0] > visibility_th:
             cv.line(image, landmark_point[16][1], landmark_point[18][1],
@@ -500,7 +500,7 @@ def draw_pose_landmarks(image, landmarks, upper_body_only, visibility_th=0.5):
             0] > visibility_th:
             cv.line(image, landmark_point[22][1], landmark_point[16][1],
                     (RED, GREEN, BLUE), THIKNESS)
-        # 胴体
+        # тело
         if landmark_point[11][0] > visibility_th and landmark_point[23][
             0] > visibility_th:
             cv.line(image, landmark_point[11][1], landmark_point[23][1],
@@ -514,7 +514,7 @@ def draw_pose_landmarks(image, landmarks, upper_body_only, visibility_th=0.5):
             cv.line(image, landmark_point[23][1], landmark_point[24][1],
                     (RED, GREEN, BLUE), THIKNESS)
         if len(landmark_point) > 25:
-            # 右足
+            # Правая нога
             if landmark_point[23][0] > visibility_th and landmark_point[25][
                 0] > visibility_th:
                 cv.line(image, landmark_point[23][1], landmark_point[25][1],
@@ -531,7 +531,7 @@ def draw_pose_landmarks(image, landmarks, upper_body_only, visibility_th=0.5):
                 0] > visibility_th:
                 cv.line(image, landmark_point[29][1], landmark_point[31][1],
                         (RED, GREEN, BLUE), THIKNESS)
-            # 左足
+            # Правая нога
             if landmark_point[24][0] > visibility_th and landmark_point[26][
                 0] > visibility_th:
                 cv.line(image, landmark_point[24][1], landmark_point[26][1],
