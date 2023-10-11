@@ -68,7 +68,7 @@ def holistic():
     # Загрузка модели #############################################################
     mp_holistic = mp.solutions.holistic
     holistic = mp_holistic.Holistic(
-  #      upper_body_only=upper_body_only,
+       # upper_body_only=upper_body_only,
         min_detection_confidence=min_detection_confidence,
         min_tracking_confidence=min_tracking_confidence,
     )
@@ -87,7 +87,7 @@ def holistic():
         image.flags.writeable = False
         results = holistic.process(image)
         image.flags.writeable = True
-        # Face Mesh ###########################################################
+        # Лицо  ###########################################################
         face_landmarks = results.face_landmarks
         if face_landmarks is not None:
             # Расчет описанного прямоугольника
@@ -95,7 +95,7 @@ def holistic():
             # Рисование
             debug_image = draw_face_landmarks(debug_image, face_landmarks)
             debug_image = draw_bounding_rect(use_brect, debug_image, brect)
-        # Pose ###############################################################
+        # Поза ###############################################################
         pose_landmarks = results.pose_landmarks
         if pose_landmarks is not None:
             # Расчет описанного прямоугольника
@@ -104,7 +104,7 @@ def holistic():
             debug_image = draw_pose_landmarks(debug_image, pose_landmarks,
                                               upper_body_only)
             debug_image = draw_bounding_rect(use_brect, debug_image, brect)
-        # Hands ###############################################################
+        # Руки ###############################################################
         left_hand_landmarks = results.left_hand_landmarks
         right_hand_landmarks = results.right_hand_landmarks
         # левая рука
@@ -140,7 +140,7 @@ def holistic():
         if key == 27:  # ESC
             break
         # отражение экрана #############################################################
-        cv.imshow('Face+Holistic Demo', debug_image)
+        cv.imshow('Парсинг движений человека', debug_image)
     cap.release()
     cv.destroyAllWindows()
 
